@@ -1,0 +1,36 @@
+form{
+    background-color: antiquewhite;
+    border: 2px solid rgb(252, 162, 162);
+    padding: 5px 5px;
+    border-radius: 4px;
+    margin-top: 0px;
+    
+}
+
+body{
+    background: url(https://previews.123rf.com/images/mizar21984/mizar219841903/mizar21984190300016/121095827-background-diet-plan-with-fresh-vegetables-and-fruits-on-the-table-top-view.jpg);
+}
+
+.top1{
+    background-color: aqua;
+  height: 10vh;
+  padding-top: 3px;
+  padding-left: 374px;
+  border: 2px solid;
+}  
+
+p{
+    position: relative;
+    font-size: 2vw;
+     top: 3vh;
+     background-color: rgb(242, 219, 176);
+}
+
+#button1{
+        font-size: 1.5vw;
+        text-align: center;
+        height: 7vh;
+        width: 24vw;
+        /* border: 2px solid blue; */
+        border-radius: 14px;
+}

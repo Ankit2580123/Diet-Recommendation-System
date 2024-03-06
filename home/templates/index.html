@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <title>Diet Recommendation System</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="icon" href="{% static 'images/logo2.png' %}">
+</head>
+
+<body>
+
+  
+   <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+      <ul class="navbar-nav mr-auto mt-5 mt-lg-0 pl-5" style="font-size: 1.8rem">
+        <li class="nav-item active pr-3">
+          <a class="nav-link"  href="{% url 'index' %}" > <img src="{% static 'images/logo2.png' %}" alt="logo" width="65" height="65" style="border-radius:50%;"></a>
+        </li>
+        <li class="nav-item active pr-3">
+          <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+       
+        <li class="nav-item active pr-3">
+          <a class="nav-link" href="#about">Services</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'contact' %}" >Contact</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="nav-link" href="{% url 'login' %}"> <button  type="button" class="btn btn-success mr-4">Login</button></a>
+        <a class="nav-link" href="{% url 'signup' %}" ><button type="button" class="btn btn-success mr-4">SignUp</button></a> 
+      </form>
+    </div>
+  </nav>
+
+  {% for message in messages  %}
+  <div class="alert alert-{{message.tags}} mb-0 alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+
+  <!-- crousel -->
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+      <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="4000">
+        <img class="d-block"
+          src="{% static 'images/diet1.jpg' %}"
+          alt="First slide" style="height: 80vh; width: 100%" />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Don’t try to eat less. Try to eat right.</h1>
+          </div>
+    </div>
+
+    
+     
+      <div class="carousel-item" data-interval="4000" >
+        <img class="d-block"
+        src="{% static 'images/diet2.jpg' %}"
+          alt="Second slide" style="height: 80vh; width: 100%" />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Health is wealth.</h1>
+        </div>
+    
+      </div>
+      <div class="carousel-item" data-interval="4000">
+        <img class="d-block"
+        src="{% static 'images/diet3.jpg' %}"
+          alt="Third slide" style="height: 80vh; width: 100%" />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Heavier breakfast, lighter dinner.</h1>
+           </div>
+ </div>
+
+    <!--Latest News Section-->
+  <section class="latest_news_sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="latest_news">
+            <div>
+              <span class="bg-danger news_title">Latest News</span>
+            </div>
+            <div class="latest_content">
+              <marquee onmouseover="stop()" onmouseleave="start()" behavior="scroll-behavior" direction="left">
+                <p><img src="https://www.aactni.edu.in/iqac/images/animated/new.gif" style="width: 45px;" />Welcome to
+                  Diet Recommendation System You Can Check Your Healthy Diet/Nutritions/Foods on the Basis of your
+                  Health Condition. <a href="https://www.rvscollege.ac.in/#">Click Here</a>
+                 </p>
+              </marquee>
+            </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   
+
+
+  <section class="about" id="about">
+     <div class="max-width">
+      <h2 class="title">Services</h2>
+      <div class="about-content">
+
+        <div class="column left">
+          <img  src="{% static 'images/Dietabout.jpg' %}" alt="myimage">
+        </div>
+        <div class="column right">
+          <div class="text">Welcome To <span class="txt">Diet Recommendation System</span></div>
+          <li>Recommending the Diet & Nutritions Based on User Health Conditions.</li>
+          <li>Calulate Your Body Mass Index (BMI).</li>
+          <li>First You Need to Register Yourself then you are ready to Login.</li>
+          <li>After Register You are a Authorized Member of our Site.</li>
+          <li>Just Click on Get's Start Button to Further Process.</li>
+          
+
+          <a class="start-btn" href="{% url 'login' %}">Get's Start</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--Fotter Sections-->
+
+
+  <section class="footer_sec">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div>
+            <h2>About Us</h2>
+            <p class="aboutpara">This Website are help you to get a Good and Healthy Diets based on your
+              Health Conditions.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div>
+            <h2>Quick Links</h2>
+            <ul >
+              <li ><a style="color: #fff;" href="#">Home</a></li>
+              <li><a style="color: #fff;" href="#about">About</a></li>
+              <li><a style="color: #fff;" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117711.93310575312!2d86.09336905871746!3d22.78400724375757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e31989f0e2b5%3A0xeeec8e81ce9b344!2sJamshedpur%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1688026739275!5m2!1sen!2sin"
+              style="display: block;width:100%;" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <hr style="border-top: 1px solid #f8f9fa;">
+          <div class="text-center">
+            <span>Created By <a style="color:#33bcd1;" href="#">Group X</a> | <span class="far fa-copyright"></span> 2024 All right
+              reserved.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="{% static 'js/script.js' %}"></script>
+    
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Diet Form</title>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+  </head>
+    
+
+  <body>
+
+        <!-- navbar -->
+    {% comment %} <h1 class="top1">Welcome to Diet Recommendation System</h1> {% endcomment %}
+
+     <center><p  class="font-italic" ><u> Fill details and get you best diet plan </u></p> </center>
+
+     <!-- form -->
+         <form  action="{% url 'recommendation' %}" method="POST" enctype="multipart/form-data" style="max-width: 70%; margin-left: 24vh; margin-top: 5vh;">
+           {% csrf_token %}
+        <label for="exampleFormControlSelect1">Name*</label>
+        <div class="row">
+            <div class="col">
+              <input type="text" name="name" class="form-control" placeholder="Name">
+            </div>
+          </div>
+
+          <br>
+         <div class="form-group">
+          <label for="exampleFormControlSelect1">Select Gender*</label>
+          <select name="gender" class="form-control" id="exampleFormControlSelect1">
+            <option>Male</option>
+            <option>Female</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="formGroupExampleInput">Enter your Age:</label>
+            <input name="age" type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter age">
+          </div>
+       
+        <div class="form-group">
+            <label for="formGroupExampleInput">BMI(Body Mass Index) Note:-if You are not know check BMI section <a href="{% url 'bmi' %}">Click here</a></label>
+            <input name="bmi" type="number" placeholder="Your BMI" class="form-control" id="formGroupExampleInput" >
+          </div>
+         
+        <div class="form-group required">
+          <label for="exampleFormControlSelect1">Select Diseases*</label>
+          <select name="diseases"  class="form-control" id="exampleFormControlSelect1">
+            <option>No Diseases</option>
+            <option>Obesity</option>
+            <option>Diabetes</option>
+            
+            </select>
+        </div>
+         
+        <div class="form-group Required">
+            <label for="exampleFormControlSelect1">Food Type :- *</label>
+            <select name="foodtype" class="form-control" id="exampleFormControlSelect1">
+                <option >Select</option>
+                <option>Veg</option>
+                <option>Non Veg</option>
+                <option>Both(Veg and Non veg)</option>
+               </select>
+          </div>
+
+      <center><button type="submit" id="button1" class="btn btn-primary text-center" style="width:90%;">Get Recommendation</button>
+      </center>
+    </form>
+  
+  </body>
+</html>

@@ -1,0 +1,92 @@
+body {
+    background-color: #344a72;
+    font-family: "Roboto", sans-serif;
+    background: url(https://previews.123rf.com/images/mizar21984/mizar219841903/mizar21984190300016/121095827-background-diet-plan-with-fresh-vegetables-and-fruits-on-the-table-top-view.jpg)
+  }
+  
+  .signup-box {
+    width: 350px;
+    height: 800px;
+    margin: auto;
+    background-color: white;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 150px;
+  }
+  
+  /* .login-box {
+    width: 360px;
+    height: 280px;
+    margin: auto;
+    border-radius: 3px;
+    background-color: white;
+  } */
+  
+  h1 {
+    text-align: center;
+    padding-top: 15px;
+  }
+  
+  h4 {
+    text-align: center;
+  }
+  
+  form {
+    width: 300px;
+    margin-left: 20px;
+  }
+  
+  form label {
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+  }
+  input[type="button"] {
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #49c1a2;
+    color: white;
+    font-size: 18px;
+  }
+  p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+  }
+  .para-2 {
+    text-align: center;
+    color: #111;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: -10px;
+  }
+  .para-2 a {
+    color: #49c1a2;
+  }
+  .btn-s{
+    font-size: 43px;
+    height: 80px;
+    width: 319px;
+    margin-top: 37px;
+    padding: 2px 4px;
+    border: 3px solid black;
+    color: black;
+    border-radius: 54px;
+    cursor: pointer;
+  }
+  .submit:hover{
+    cursor: pointer;
+  }
+  
+  

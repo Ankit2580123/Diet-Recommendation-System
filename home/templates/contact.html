@@ -1,0 +1,115 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Contact us</title>
+    <link rel="stylesheet"  href="{% static 'css/contact.css' %}">
+    <link rel="icon" href="{% static 'images/logo2.png' %}">
+
+
+
+  </head>
+  <body style="background-color:aliceblue;">
+     <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 5vw;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
+          <ul class="navbar-nav mr-auto mt-5 mt-lg-0 pl-5" style="font-size: 1.8rem">
+            <li class="nav-item active pr-3">
+              <a class="nav-link" href="{% url 'index' %}" > <img src="{% static 'images/logo2.png' %}" alt="logo" width="65" height="65" style="border-radius:50%;"></a>
+            </li>
+            <li class="nav-item active pr-3">
+              <a class="nav-link" href="{% url 'index' %}" >Home <span class="sr-only">(current)</span></a>
+            </li>
+          
+            <li class="nav-item active">
+              <a  class="nav-link active"  href="{% url 'contact' %}">Contact</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a class="nav-link" href="{% url 'login' %}"> <button  type="button" class="btn btn-success mr-4">Login</button></a>
+            <a class="nav-link" href="{% url 'signup' %}" ><button type="button" class="btn btn-success mr-4">SignUp</button></a> 
+          </form>
+        </div>
+      </nav>
+       {% for message in messages  %}
+  <div class="alert alert-{{message.tags}} mb-0 alert-dismissible fade show"  role="alert">
+    <strong>Message:</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %} 
+
+       <!-- map -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117711.93310575312!2d86.09336905871746!3d22.78400724375757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e31989f0e2b5%3A0xeeec8e81ce9b344!2sJamshedpur%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1688026739275!5m2!1sen!2sin" width="400px" height="600px" style="border:0; top:180px; right: 100px; position: absolute; border-radius: 2%; animation: bounce 1s infinite;
+         @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+      </div>
+    
+      <div class="container fade-in" >
+       
+        <div class="header" style="color: black;">
+          <u><h1>Contact Us</h1> </u>
+          <p >Get in touch </p>
+        </div>
+
+        <!-- form -->
+       <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" style="margin-bottom:20px;" id="registrationForm" data-toggle="validator" data-focus="false">
+        {% csrf_token %}
+          <div class="form-group">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" name="message" required></textarea>
+          </div> 
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:20px;">Submit</button>
+        </form>
+       
+
+         <!-- footer -->
+          <div style="margin-top:20px;" class="address">
+          <h3 style="color: black; "><u> Address:</u></h3>
+          <p style="color: black; ">RVS College Of Engineering and Technology<br>Jamshedpur, Jharkhand 831012<br>India</p>
+        </div>
+        <div class="social">
+          <h3 style="color: black; ">Follow us:</h3>
+          <a href="#" target="_blank">Facebook</a>
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <footer style="margin-top:80px;" class="footer">
+        <p>&copy; 2024 Diet Recommendation System. All rights reserved.</p>
+      </footer>
+
+
+    
+  </body>
+</html>
