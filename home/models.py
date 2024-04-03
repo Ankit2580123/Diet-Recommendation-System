@@ -25,7 +25,7 @@ class DietForm(models.Model):
     name=models.CharField(max_length=50)
     gender = models.CharField(max_length=128)
     age=models.IntegerField(null=False)
-    bmi=models.FloatField()
+    bmi=models.FloatField(null=True)
     diseases=models.CharField(max_length=128)
     foodType=models.CharField(max_length=128)
 

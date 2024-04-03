@@ -1,4 +1,3 @@
-from pyexpat.errors import messages
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from . models import signup as Signup,ContactsInformations,DietForm
@@ -36,7 +35,7 @@ vegfoods=['Beans and lentils','Whole grains (whole-wheat oats brown rice and mor
 
 nonveg=['Chicken','Eggs','Meat','Fish']
 
-vegan=['Beans and lentils', 'Chicken','Whole grains (whole-wheat oats brown rice and more)','Fruits (Apples Bananas Orange)'
+vegan=['Beans and lentils', 'Chicken','Whole grains (whole-wheat oats brown rice and etc)','Fruits (Apples Bananas Orange)'
           ,'Green Vegetables (Broccoli Spinach more)','Eggs' 'Dairy (yogurt,cheese and milk)','Soy (tofu edamame tempeh)',
           'Meat','Fish','Nuts & Seeds (cashew almonds and Chia Seeds)']
 
@@ -95,9 +94,6 @@ def recommendation(request):
                                                        })
                  
        
-          
-
-     
 
 def login(request):
    if request.method=='POST':
@@ -107,7 +103,7 @@ def login(request):
               user=Signup.objects.filter(username=username,password=password1).first()
               
               
-              print(user)
+            #   print(user)
               if user is not None:
                    messages.success(request,"Successfully Logged In!")
                    return render(request,'home.html',{'title':'You are Successfully Login','data': username})
@@ -131,9 +127,17 @@ def signup(request):
                    messages.error(request,"Your Password are not Matched with Confirm Password!")
                    
               else:
-                   my_user.save()
-                   messages.success(request,"You are Successfully Registered!")
-                   return render(request,'login.html',{'title':'You are Successfully Registred','name': username})
+
+                  if Signup.objects.filter(username=username).exists():
+                        messages.error(request,"Username Already Taken")
+                  elif Signup.objects.filter(email=email).exists():
+                        messages.error(request,"Email Already Taken")
+                  else:
+                        my_user.save()
+                        messages.success(request,"You are Successfully Registered!")
+                        return redirect('login')
+                   
+                   
                   #  return redirect('/login')  
          return render(request,'signup.html')
     
@@ -144,6 +148,7 @@ def user_list(request):
     data=Signup.objects.all()
     return render(request,'userlist.html',{'title':'User List','data':data})
 
+@login_required(login_url='/login')
 def home(request):
    return render(request,'home.html') 
 
