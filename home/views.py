@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 
@@ -135,7 +137,17 @@ def signup(request):
                   else:
                         my_user.save()
                         messages.success(request,"You are Successfully Registered!")
+                        
+                  
+
+                  #Email Message
+                        subject = 'welcome to techno fitness'
+                        message = f'Hi {my_user.username}, Thank you for registering.'
+                        email_from = settings.EMAIL_HOST_USER
+                        recipient_list =[my_user.email, ]
+                        send_mail( subject, message, email_from, recipient_list) 
                         return redirect('login')
+                        
                    
                    
                   #  return redirect('/login')  
